@@ -20,6 +20,24 @@ public class TaskController {
         this.title.setText(title);
         this.timestamp.setText(formatTimestamp(timestamp));
         this.status.setText(status);
+        applyStatusColor(status);
+    }
+
+    private void applyStatusColor(String status) {
+        switch (status) {
+            case "ToDo":
+                this.status.setStyle("-fx-text-fill: gray;");
+                break;
+            case "InProgress":
+                this.status.setStyle("-fx-text-fill: orange;");
+                break;
+            case "Done":
+                this.status.setStyle("-fx-text-fill: green;");
+                break;
+            default:
+                this.status.setStyle("-fx-text-fill: black;");
+                break;
+        }
     }
 
     private String formatTimestamp(LocalDateTime timestamp) {
