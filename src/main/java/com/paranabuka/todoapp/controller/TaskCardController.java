@@ -65,6 +65,8 @@ public class TaskCardController {
         title.setText(task.getTitle());
         status.setText(task.getStatus());
         applyStatusColor(task.getStatus());
+
+        mainController.redrawTasks();
     }
 
     private void applyStatusColor(String status) {

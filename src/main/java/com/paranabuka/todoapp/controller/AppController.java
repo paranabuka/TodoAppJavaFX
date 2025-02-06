@@ -77,7 +77,7 @@ public class AppController {
     private void addTask(String title, String description, String status, LocalDateTime createdAt) {
         Task newTask = new Task(title, description, status, createdAt);
         taskList.addTask(newTask);
-        displayTask(newTask);
+        redrawTasks();
     }
 
     private void displayTask(Task task) {
@@ -92,5 +92,10 @@ public class AppController {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public void redrawTasks() {
+        taskListVBox.getChildren().clear();
+        taskList.getTasks().forEach(this::displayTask);
     }
 }
