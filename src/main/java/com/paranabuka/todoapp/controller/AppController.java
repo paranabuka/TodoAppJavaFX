@@ -30,27 +30,7 @@ public class AppController {
         statusComboBox.getItems().addAll("All", "ToDo", "InProgress", "Done");
         statusComboBox.setValue("All");
         statusComboBox.valueProperty().addListener(statusChangeListener());
-
-        addTask(
-                "Create a JavaFX Project",
-                "JavaFX is an open source, next generation client application platform for " +
-                        "desktop, mobile and embedded systems built on Java",
-                "Done",
-                LocalDateTime.now().minusMinutes(60)
-        );
-        addTask(
-                "Learn Spring Boot",
-                "Spring Boot makes it easy to create stand-alone, production-grade Spring based " +
-                        "Applications that you can \"just run\"",
-                "ToDo",
-                LocalDateTime.now().minusMinutes(15)
-        );
-        addTask(
-                "Create a ToDo App",
-                "A productivity tool to ease your day",
-                "InProgress",
-                LocalDateTime.now().minusMinutes(45)
-        );
+        redrawTasks();
     }
 
     public void handleAddTask(ActionEvent actionEvent) {
