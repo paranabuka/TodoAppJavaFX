@@ -6,8 +6,11 @@ import com.paranabuka.todoapp.managers.TaskList;
 import io.github.palexdev.materialfx.controls.MFXComboBox;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
 import java.time.LocalDateTime;
 
@@ -44,7 +47,32 @@ public class AppController {
     }
 
     public void handleAddTask(ActionEvent actionEvent) {
-        addTask("New Task", "A brand new task", "ToDo", LocalDateTime.now());
+//        addTask("New Task", "A brand new task", "ToDo", LocalDateTime.now());
+        showAddTaskDialog();
+    }
+
+    public void showAddTaskDialog() {
+        try {
+            FXMLLoader loader = App.fxmlLoader("add_task_dialog");
+            VBox dialog = loader.load();
+            AddTaskDialogController dialogController = loader.getController();
+            dialogController.setMainController(this);
+
+            Stage dialogStage = new Stage();
+            dialogStage.setTitle("Add New Task");
+            dialogStage.initModality(Modality.APPLICATION_MODAL);
+
+            Scene scene = new Scene(dialog);
+            scene.getStylesheets().add(App.loadStylesheet("add_task_dialog.css"));
+            dialogStage.setScene(scene);
+            dialogStage.showAndWait();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void addTaskFromDialog(String title, String description) {
+        addTask(title, description, "ToDo", LocalDateTime.now());
     }
 
     private void addTask(String title, String description, String status, LocalDateTime createdAt) {

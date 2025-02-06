@@ -27,8 +27,8 @@ public class App extends Application {
                 .build()
                 .setGlobal();
 
-        Scene scene = new Scene(loadFXML("app"));
-        scene.getStylesheets().add(loadStylesheet());
+        Scene scene = new Scene(loadAppFXML());
+        scene.getStylesheets().add(loadStylesheet("styles.css"));
         scene.setFill(Color.TRANSPARENT);
         stage.initStyle(StageStyle.DECORATED);
         stage.setTitle(APP_TITLE);
@@ -43,12 +43,12 @@ public class App extends Application {
         return new FXMLLoader(App.class.getResource(fxml + ".fxml"));
     }
 
-    private static Parent loadFXML(String fxml) throws IOException {
-        return fxmlLoader(fxml).load();
+    private static Parent loadAppFXML() throws IOException {
+        return fxmlLoader("app").load();
     }
 
-    private static String loadStylesheet() {
-        return App.class.getResource("styles.css").toExternalForm();
+    public static String loadStylesheet(String styles) {
+        return App.class.getResource(styles).toExternalForm();
     }
 
     public static void main(String[] args) {
