@@ -25,7 +25,8 @@ public class TaskCardController {
 
     private AppController mainController;
 
-    public void setDetails(String taskId, String title, LocalDateTime timestamp, String status, AppController mainController) {
+    public void setDetails(String taskId, String title, LocalDateTime timestamp, String status,
+                           AppController mainController) {
         this.taskId = taskId;
         this.title.setText(title);
         this.timestamp.setText(formatTimestamp(timestamp));
