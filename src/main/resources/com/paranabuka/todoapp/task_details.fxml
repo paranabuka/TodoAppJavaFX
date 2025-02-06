@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import io.github.palexdev.materialfx.controls.MFXTextField?>
+<?import io.github.palexdev.materialfx.controls.MFXComboBox?>
+<?import io.github.palexdev.materialfx.controls.MFXButton?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.paranabuka.todoapp.controller.TaskDetailsController"
+      prefHeight="500.0" prefWidth="400.0"
+      spacing="20" alignment="CENTER" styleClass="task-dialog-pane">
+    <Label text="Task Details" styleClass="dialog-title"/>
+    <MFXTextField fx:id="taskTitleField" promptText="Task title" floatingText="Task title" prefWidth="400"/>
+    <TextArea fx:id="taskDescriptionField" promptText="Task description" wrapText="true" prefHeight="300" prefWidth="400"/>
+    <MFXComboBox fx:id="taskStatusField" promptText="Select status" prefWidth="400" prefHeight="30"/>
+    <Label text="Comments"/>
+    <HBox spacing="10">
+        <MFXTextField fx:id="commentField" promptText="Add comment" prefWidth="300"/>
+        <MFXButton text="Add" prefWidth="70" onAction="#handleAddComment" styleClass="add-comment-btn"/>
+    </HBox>
+    <ScrollPane fitToWidth="true" fitToHeight="true" vbarPolicy="NEVER" hbarPolicy="NEVER">
+        <VBox fx:id="commentList" spacing="5" prefHeight="300" prefWidth="400"/>
+    </ScrollPane>
+    <HBox spacing="20" alignment="CENTER_RIGHT">
+        <Region HBox.hgrow="ALWAYS"/>
+        <MFXButton text="Cancel" onAction="#handleCancel" prefWidth="80" prefHeight="30" styleClass="cancel-btn"/>
+        <MFXButton text="Update" onAction="#handleUpdate" prefWidth="80" prefHeight="30" styleClass="update-btn"/>
+    </HBox>
+</VBox>

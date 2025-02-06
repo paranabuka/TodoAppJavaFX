@@ -47,13 +47,12 @@ public class AppController {
     }
 
     public void handleAddTask(ActionEvent actionEvent) {
-//        addTask("New Task", "A brand new task", "ToDo", LocalDateTime.now());
         showAddTaskDialog();
     }
 
     public void showAddTaskDialog() {
         try {
-            FXMLLoader loader = App.fxmlLoader("add_task_dialog");
+            FXMLLoader loader = App.fxmlLoader("add_task");
             VBox dialog = loader.load();
             AddTaskDialogController dialogController = loader.getController();
             dialogController.setMainController(this);
@@ -63,7 +62,7 @@ public class AppController {
             dialogStage.initModality(Modality.APPLICATION_MODAL);
 
             Scene scene = new Scene(dialog);
-            scene.getStylesheets().add(App.loadStylesheet("add_task_dialog.css"));
+            scene.getStylesheets().add(App.loadStylesheet("add_task.css"));
             dialogStage.setScene(scene);
             dialogStage.showAndWait();
         } catch (Exception e) {
@@ -83,12 +82,12 @@ public class AppController {
 
     private void displayTask(Task task) {
         try {
-            FXMLLoader loader = App.fxmlLoader("task");
+            FXMLLoader loader = App.fxmlLoader("task_card");
 
             HBox taskCard = loader.load();
-            TaskController controller = loader.getController();
+            TaskCardController controller = loader.getController();
 
-            controller.setDetails(task.getTitle(), task.getCreatedAt(), task.getStatus());
+            controller.setDetails(task.getId(), task.getTitle(), task.getCreatedAt(), task.getStatus(), this);
             taskListVBox.getChildren().add(taskCard);
         } catch (Exception e) {
             e.printStackTrace();

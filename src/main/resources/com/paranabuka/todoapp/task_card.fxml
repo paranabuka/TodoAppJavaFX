@@ -9,7 +9,7 @@
 <?import io.github.palexdev.materialfx.controls.MFXButton?>
 <HBox xmlns="http://javafx.com/javafx"
       xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.paranabuka.todoapp.controller.TaskController"
+      fx:controller="com.paranabuka.todoapp.controller.TaskCardController"
       spacing="10" alignment="CENTER" styleClass="task">
     <VBox spacing="5" HBox.hgrow="ALWAYS">
         <Label fx:id="title" text="Task title"/>

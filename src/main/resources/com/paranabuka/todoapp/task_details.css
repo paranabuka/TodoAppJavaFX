@@ -1,0 +1,60 @@
+.task-dialog-pane {
+    -fx-background-color: #f9f9f9;
+    -fx-padding: 20px;
+    -fx-border-radius: 10px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.15), 10, 0.5, 0, 0);
+}
+
+.dialog-title {
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333;
+}
+
+MFXComboBox {
+    -fx-background-color: #f2f2f2;
+    -fx-background-radius: 5px;
+    -fx-font-size: 14px;
+}
+
+MFXButton {
+    -fx-background-color: #6200EE;
+    -fx-text-fill: white;
+    -fx-background-radius: 8px;
+    -fx-padding: 10px;
+    -fx-font-size: 14px;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 5, 0.5, 0, 0);
+}
+
+MFXButton:hover {
+    -fx-background-color: #5a00d9;
+}
+
+ScrollPane {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+TextArea {
+    -fx-padding: 0px;
+    -fx-border-radius: 8px;
+    -fx-font-size: 14px;
+    -fx-focus-color: #6200EE;
+}
+
+.add-comment-button{
+    -fx-padding: 15px 10px;
+}
+
+.cancel-button {
+    -fx-background-color: #757575;
+    -fx-text-fill: white;
+    -fx-background-radius: 8px;
+    -fx-padding: 10px;
+    -fx-font-size: 12px;
+}
+
+.cancel-button:hover {
+    -fx-background-color: #666;
+}
