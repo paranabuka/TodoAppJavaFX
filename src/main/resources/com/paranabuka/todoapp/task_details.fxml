@@ -29,7 +29,8 @@
     </ScrollPane>
     <HBox spacing="20" alignment="CENTER_RIGHT">
         <Region HBox.hgrow="ALWAYS"/>
-        <MFXButton text="Cancel" onAction="#handleCancel" prefWidth="80" prefHeight="30" styleClass="cancel-btn"/>
-        <MFXButton text="Update" onAction="#handleUpdate" prefWidth="80" prefHeight="30" styleClass="update-btn"/>
+        <MFXButton text="Cancel" onAction="#handleCancel" prefWidth="80" prefHeight="30" styleClass="cancel-button"/>
+        <MFXButton text="Delete" onAction="#handleDelete" prefWidth="80" prefHeight="30" styleClass="delete-button"/>
+        <MFXButton text="Update" onAction="#handleUpdate" prefWidth="80" prefHeight="30" styleClass="update-button"/>
     </HBox>
 </VBox>

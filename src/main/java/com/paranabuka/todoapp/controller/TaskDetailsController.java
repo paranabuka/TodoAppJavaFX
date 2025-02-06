@@ -62,6 +62,11 @@ public class TaskDetailsController {
         closeDialog();
     }
 
+    public void handleDelete(ActionEvent actionEvent) {
+        mainController.deleteTask(task);
+        closeDialog();
+    }
+
     private void closeDialog() {
         Stage stage = (Stage) taskTitleField.getScene().getWindow();
         stage.close();

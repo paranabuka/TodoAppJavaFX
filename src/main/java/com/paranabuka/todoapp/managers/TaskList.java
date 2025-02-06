@@ -31,6 +31,7 @@ public class TaskList implements Serializable {
 
     public void removeTask(Task task) {
         tasks.remove(task);
+        saveTasks();
     }
 
     public Task getTaskById(String id) {

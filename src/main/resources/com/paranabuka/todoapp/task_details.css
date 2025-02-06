@@ -58,3 +58,15 @@ TextArea {
 .cancel-button:hover {
     -fx-background-color: #666;
 }
+
+.delete-button {
+    -fx-background-color: #ae2e2e;
+    -fx-text-fill: white;
+    -fx-background-radius: 8px;
+    -fx-padding: 10px;
+    -fx-font-size: 12px;
+}
+
+.delete-button:hover {
+    -fx-background-color: #ae2e2ea3;
+}

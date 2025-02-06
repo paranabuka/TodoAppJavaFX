@@ -70,6 +70,11 @@ public class TaskCardController {
         mainController.redrawTasks();
     }
 
+    public void deleteTask(Task task) {
+        taskList.removeTask(task);
+        mainController.redrawTasks();
+    }
+
     private void applyStatusColor(String status) {
         switch (status) {
             case "ToDo":
