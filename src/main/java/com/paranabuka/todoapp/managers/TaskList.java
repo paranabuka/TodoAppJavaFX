@@ -82,7 +82,7 @@ public class TaskList implements Serializable {
     @SuppressWarnings({"unchecked", "CallToPrintStackTrace"})
     private void loadTasks() {
         File file = new File(FILEPATH);
-        if (!file.exists()) { return; }
+        if (!file.exists()) { saveTasks(); }
 
         try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file))) {
             tasks = (List<Task>) ois.readObject();
