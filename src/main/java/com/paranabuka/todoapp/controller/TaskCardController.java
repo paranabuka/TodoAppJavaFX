@@ -36,11 +36,13 @@ public class TaskCardController {
         this.mainController = mainController;
     }
 
+    @SuppressWarnings("unused")
     public void handleViewTask(ActionEvent actionEvent) {
         Task task = taskList.getTaskById(taskId);
         showTaskDialog(task);
     }
 
+    @SuppressWarnings("CallToPrintStackTrace")
     public void showTaskDialog(Task task) {
         try {
             FXMLLoader loader = App.fxmlLoader("task_details");

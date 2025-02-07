@@ -28,9 +28,7 @@ public class TaskDetailsController {
         taskDescriptionField.setText(task.getDescription());
         taskStatusField.getItems().clear();
         taskStatusField.getItems().addAll("ToDo", "InProgress", "Done");
-        Platform.runLater(() -> {
-            taskStatusField.setValue(task.getStatus());
-        });
+        Platform.runLater(() -> taskStatusField.setValue(task.getStatus()));
         task.getComments().forEach(this::displayComment);
     }
 
@@ -40,6 +38,7 @@ public class TaskDetailsController {
         commentList.getChildren().addFirst(commentLabel);
     }
 
+    @SuppressWarnings("unused")
     public void handleAddComment(ActionEvent actionEvent) {
         String comment = commentField.getText();
         if (!comment.isBlank()) {
@@ -49,10 +48,12 @@ public class TaskDetailsController {
         }
     }
 
+    @SuppressWarnings("unused")
     public void handleCancel(ActionEvent actionEvent) {
         closeDialog();
     }
 
+    @SuppressWarnings("unused")
     public void handleUpdate(ActionEvent actionEvent) {
         task.setTitle(taskTitleField.getText());
         task.setDescription(taskDescriptionField.getText());
@@ -62,6 +63,7 @@ public class TaskDetailsController {
         closeDialog();
     }
 
+    @SuppressWarnings("unused")
     public void handleDelete(ActionEvent actionEvent) {
         mainController.deleteTask(task);
         closeDialog();

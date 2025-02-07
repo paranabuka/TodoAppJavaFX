@@ -70,6 +70,7 @@ public class TaskList implements Serializable {
         };
     }
 
+    @SuppressWarnings("CallToPrintStackTrace")
     private void saveTasks() {
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(FILEPATH))) {
             oos.writeObject(tasks);
@@ -78,19 +79,15 @@ public class TaskList implements Serializable {
         }
     }
 
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings({"unchecked", "CallToPrintStackTrace"})
     private void loadTasks() {
         File file = new File(FILEPATH);
         if (!file.exists()) { return; }
 
         try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file))) {
             tasks = (List<Task>) ois.readObject();
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        } catch (ClassNotFoundException e) {
-            throw new RuntimeException(e);
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
         }
     }
 }

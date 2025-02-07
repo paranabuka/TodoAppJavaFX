@@ -15,10 +15,12 @@ public class AddTaskDialogController {
         this.mainController = mainController;
     }
 
+    @SuppressWarnings("unused")
     public void handleCancel(ActionEvent actionEvent) {
         closeDialog();
     }
 
+    @SuppressWarnings("unused")
     public void handleSubmit(ActionEvent actionEvent) {
         String title = taskTitleField.getText();
         if (!title.isBlank()) {

@@ -5,7 +5,6 @@ import com.paranabuka.todoapp.dto.Task;
 import com.paranabuka.todoapp.managers.TaskList;
 import io.github.palexdev.materialfx.controls.MFXComboBox;
 import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -33,10 +32,12 @@ public class AppController {
         redrawTasks();
     }
 
+    @SuppressWarnings("unused")
     public void handleAddTask(ActionEvent actionEvent) {
         showAddTaskDialog();
     }
 
+    @SuppressWarnings("CallToPrintStackTrace")
     public void showAddTaskDialog() {
         try {
             FXMLLoader loader = App.fxmlLoader("add_task");
@@ -58,15 +59,16 @@ public class AppController {
     }
 
     public void addTaskFromDialog(String title, String description) {
-        addTask(title, description, "ToDo", LocalDateTime.now());
+        addTask(title, description, LocalDateTime.now());
     }
 
-    private void addTask(String title, String description, String status, LocalDateTime createdAt) {
-        Task newTask = new Task(title, description, status, createdAt);
+    private void addTask(String title, String description, LocalDateTime createdAt) {
+        Task newTask = new Task(title, description, "ToDo", createdAt);
         taskList.addTask(newTask);
         redrawTasks();
     }
 
+    @SuppressWarnings("CallToPrintStackTrace")
     private void displayTask(Task task) {
         try {
             FXMLLoader loader = App.fxmlLoader("task_card");
@@ -95,9 +97,10 @@ public class AppController {
         if (status.equals("All")) {
             filteredTasks = taskList.getTasks();
         } else {
-            filteredTasks = taskList.getTasks().stream().filter(t -> {
-                return t.getStatus().equals(status);
-            }).collect(Collectors.toList());
+            filteredTasks = taskList.getTasks()
+                    .stream()
+                    .filter(t -> t.getStatus().equals(status))
+                    .collect(Collectors.toList());
         }
 
         for (Task t : filteredTasks) { displayTask(t); }
@@ -110,11 +113,7 @@ public class AppController {
     }
 
     private ChangeListener<String> statusChangeListener() {
-        return new ChangeListener<String>() {
-            @Override
-            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+        return (observable, oldValue, newValue) ->
                 filterTasksByStatus(newValue);
-            }
-        };
     }
 }

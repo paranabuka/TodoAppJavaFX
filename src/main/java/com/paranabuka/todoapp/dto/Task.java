@@ -32,6 +32,7 @@ public class Task implements Serializable {
         return id;
     }
 
+    @SuppressWarnings("unused")
     public void setId(String id) {
         this.id = id;
     }
@@ -64,6 +65,7 @@ public class Task implements Serializable {
         return createdAt;
     }
 
+    @SuppressWarnings("unused")
     public void setCreatedAt(LocalDateTime createdAt) {
         this.createdAt = createdAt;
     }
